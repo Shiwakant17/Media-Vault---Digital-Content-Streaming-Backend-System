@@ -1,5 +1,6 @@
 package controller;
 
+import java.io.IOException;
 import java.util.Scanner;
 
 import model.Greetings;
@@ -7,11 +8,26 @@ import service.AdminService;
 import service.Menu;
 
 public class AdminController {
-    public void admin() throws InterruptedException {
+    public void admin() throws InterruptedException, IOException {
         Scanner sc = new Scanner(System.in);
         AdminService adminService = new AdminService();
         Menu menu = new Menu();
         Greetings greetings = new Greetings();
+
+        System.out
+                .print("                                                                      Enter Admin id:-");
+        int id = sc.nextInt();
+
+        System.out
+                .print("                                                                      Enter Admin password:-");
+        String password = sc.next();
+
+        if (id != 1234 && password != "adminpass") {
+            System.out.println(
+                    "                                                                      Wrong Credentials");
+            return;
+        }
+
         while (true) {
             menu.AdminMenu();
             greetings.enter();
@@ -19,7 +35,7 @@ public class AdminController {
 
             switch (input) {
                 case 1:
-
+                    adminService.addSong();
                     break;
 
                 case 2:

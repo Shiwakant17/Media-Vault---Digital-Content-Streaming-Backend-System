@@ -45,7 +45,7 @@ public class Menu {
                 System.out.println(
                                 "                                                                    ||        4. TRENDING SONGS       ||");
                 System.out.println(
-                                "                                                                    ||        5. SHOW SONG          ||");
+                                "                                                                    ||        5. SHOW SONG            ||");
                 System.out.println(
                                 "                                                                    ||                                ||");
                 Thread.sleep(100);

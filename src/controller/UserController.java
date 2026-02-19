@@ -47,6 +47,13 @@ public class UserController {
 
                     break;
 
+                // ---------------------------------------case
+                // 2-------------------------------------------
+
+                case 2:
+                
+                    break;
+
                 default:
                     break;
             }
