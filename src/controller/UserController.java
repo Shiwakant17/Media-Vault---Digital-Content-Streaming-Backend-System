@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.Scanner;
 
 import model.Greetings;
+import service.AdminService;
 import service.Menu;
 import service.UserService;
 
@@ -13,6 +14,7 @@ public class UserController {
         Menu menu = new Menu();
         UserService userService = new UserService();
         Greetings greetings = new Greetings();
+        AdminService adminService = new AdminService();
         while (true) {
             menu.userMenu();
             greetings.enter();
@@ -51,7 +53,11 @@ public class UserController {
                 // 2-------------------------------------------
 
                 case 2:
-                
+                    adminService.showSongs();
+                    break;
+
+                case 3:
+                    adminService.searchSong();
                     break;
 
                 default:

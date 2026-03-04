@@ -46,4 +46,20 @@ public class Greetings {
                 System.out.print("                                                                           ENTER:- ");
         }
 
+        public void load10s() throws InterruptedException {
+                System.out.print("                                                                       ");
+                for (int i = 0; i < 10; i++) {
+                        System.out.print(". ");
+                        Thread.sleep(1000);
+                }
+        }
+
+        public void load5s() throws InterruptedException {
+                System.out.print("                                                                       ");
+                for (int i = 0; i < 5; i++) {
+                        System.out.print(". ");
+                        Thread.sleep(1000);
+                }
+        }
+
 }

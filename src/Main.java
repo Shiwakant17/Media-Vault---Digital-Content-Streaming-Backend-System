@@ -1,9 +1,12 @@
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 import controller.AdminController;
 import controller.UserController;
+import data.SongList;
 import model.Greetings;
+import model.Song;
 import service.Menu;
 
 public class Main {
@@ -13,6 +16,7 @@ public class Main {
         Menu menu = new Menu();
         AdminController adminController = new AdminController();
         UserController userController = new UserController();
+        SongList songList = new SongList();
         Scanner sc = new Scanner(System.in);
 
         // LOGICS

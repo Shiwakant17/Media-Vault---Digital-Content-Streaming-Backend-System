@@ -1,8 +1,12 @@
 package service;
 
+import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Scanner;
 
+import data.SongList;
+import model.Greetings;
 import model.Song;
 import repository.SongRepository;
 
@@ -47,5 +51,89 @@ public class AdminService {
         // ----------------------------repo---------------------------------------------------
 
         songRepository.addSong(song);
+    }
+
+    public void showSongs() throws FileNotFoundException {
+        songRepository.getAllSongs();
+    }
+
+    public void searchSong() throws InterruptedException, FileNotFoundException {
+        System.out
+                .println(
+                        "                                                                      Enter By id(1):-");
+        System.out
+                .print(
+                        "                                                                      Enter By Name(2):-");
+        int choice = sc.nextInt();
+        switch (choice) {
+            case 1:
+                searchById();
+                break;
+
+            case 2:
+                searchByName();
+                break;
+
+            default:
+                break;
+        }
+    }
+
+    public static void searchById() throws InterruptedException, FileNotFoundException {
+        Scanner sc = new Scanner(System.in);
+        SongList songList = new SongList();
+        Greetings greetings = new Greetings();
+        songList.loadsongList();
+        ArrayList<Song> list = songList.getSongList();
+        System.out
+                .print(
+                        "                                                                      Enter Id:-");
+        int searchId = sc.nextInt();
+        // --------SEARCHING [BINARY]-------
+        int l = 0;
+        int h = list.size() - 1;
+
+        if (list.isEmpty()) {
+            greetings.load10s();
+            System.out.println("SORRY CAN'T GET");
+            return;
+        }
+
+        Song foundSong = new Song();
+
+        while (l <= h) {
+            int mid = (l + h) / 2;
+            if (list.get(mid).getId() == searchId) {
+                foundSong = list.get(mid);
+                break;
+            } else if (list.get(mid).getId() > searchId) {
+                h = mid - 1;
+            } else {
+                l = mid + 1;
+            }
+        }
+
+        String singlePadding = " ".repeat(67);
+        System.out.println(singlePadding + "------------------------------------");
+        System.out.printf(singlePadding + "| %-34s |%n", "");
+        System.out.printf(singlePadding + "| Name:- %-27s |%n", foundSong.getTitle());
+        System.out.printf(singlePadding + "| %-34s |%n", "");
+        System.out.printf(singlePadding + "| Duration:- %-23s |%n", foundSong.getDuration());
+        System.out.printf(singlePadding + "| %-34s |%n", "");
+        System.out.printf(singlePadding + "| Id:- %-29s |%n", foundSong.getId());
+        System.out.printf(singlePadding + "| %-34s |%n", "");
+        System.out.printf(singlePadding + "| Views:- %-26s |%n", foundSong.getViews());
+        System.out.printf(singlePadding + "| %-34s |%n", "");
+        System.out.println(singlePadding + "------------------------------------");
+
+    }
+
+    public static void searchByName() {
+        Scanner sc = new Scanner(System.in);
+        System.out
+                .print(
+                        "                                                                      Enter Name:-");
+        String searchName = sc.next();
+        searchName.trim();
     }
 }

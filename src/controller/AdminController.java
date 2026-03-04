@@ -20,9 +20,10 @@ public class AdminController {
 
         System.out
                 .print("                                                                      Enter Admin password:-");
-        String password = sc.next();
+        String password = sc.nextLine();
+        sc.nextLine();
 
-        if (id != 1234 && password != "adminpass") {
+        if (id != 1234 || password.equals("adminpass")) {
             System.out.println(
                     "                                                                      Wrong Credentials");
             return;
@@ -48,6 +49,10 @@ public class AdminController {
 
                 case 4:
 
+                    break;
+
+                case 5:
+                    adminService.showSongs();
                     break;
 
                 default:

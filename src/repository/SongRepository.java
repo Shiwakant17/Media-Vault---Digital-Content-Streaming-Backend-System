@@ -47,9 +47,50 @@ public class SongRepository {
         Scanner scanSongs = new Scanner(bufferedInputStreamSongs);
 
         while (scanSongs.hasNextLine()) {
-            String song = scanSongs.nextLine();
-            System.out.println(song);
-            System.out.println(song);
+            String song1 = scanSongs.nextLine();
+            String song1DetailArray[] = song1.split(",");
+
+            String padding = " ".repeat(45);
+            String singlePadding = " ".repeat(63);
+
+            if (scanSongs.hasNextLine()) {
+                String song2 = scanSongs.nextLine();
+                String[] song2DetailArray = song2.split(",");
+
+                // PRINTING FORMATE COPIED FROM CHAT GPT
+
+                System.out.println(
+                        padding + "------------------------------------    ------------------------------------");
+                System.out.printf(padding + "| %-34s |    | %-34s |%n", "", "");
+                System.out.printf(padding + "| Name:- %-27s |    | Name:- %-27s |%n", song1DetailArray[1],
+                        song2DetailArray[1]);
+                System.out.printf(padding + "| %-34s |    | %-34s |%n", "", "");
+                System.out.printf(padding + "| Duration:- %-23s |    | Duration:- %-23s |%n", song1DetailArray[2],
+                        song2DetailArray[2]);
+                System.out.printf(padding + "| %-34s |    | %-34s |%n", "", "");
+                System.out.printf(padding + "| Id:- %-29s |    | Id:- %-29s |%n", song1DetailArray[0],
+                        song2DetailArray[0]);
+                System.out.printf(padding + "| %-34s |    | %-34s |%n", "", "");
+                System.out.printf(padding + "| Views:- %-26s |    | Views:- %-26s |%n", song1DetailArray[3],
+                        song2DetailArray[3]);
+                System.out.printf(padding + "| %-34s |    | %-34s |%n", "", "");
+                System.out.println(
+                        padding + "------------------------------------    ------------------------------------");
+            } else {
+                System.out.println(singlePadding + "------------------------------------");
+                System.out.printf(singlePadding + "| %-34s |%n", "");
+                System.out.printf(singlePadding + "| Name:- %-27s |%n", song1DetailArray[1]);
+                System.out.printf(singlePadding + "| %-34s |%n", "");
+                System.out.printf(singlePadding + "| Duration:- %-23s |%n", song1DetailArray[2]);
+                System.out.printf(singlePadding + "| %-34s |%n", "");
+                System.out.printf(singlePadding + "| Id:- %-29s |%n", song1DetailArray[0]);
+                System.out.printf(singlePadding + "| %-34s |%n", "");
+                System.out.printf(singlePadding + "| Views:- %-26s |%n", song1DetailArray[3]);
+                System.out.printf(singlePadding + "| %-34s |%n", "");
+                System.out.println(singlePadding + "------------------------------------");
+            }
+
         }
+
     }
 }
