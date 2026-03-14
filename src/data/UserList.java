@@ -25,10 +25,11 @@ public class UserList {
             String userDetailArray[] = user.split(",");
 
             User xyzUser = new User();
-            xyzUser.setName(userDetailArray[1]);
-            xyzUser.setEmail(userDetailArray[3]);
-            xyzUser.setPhone(Long.parseLong(userDetailArray[2]));
-            xyzUser.setPassword(userDetailArray[4]);
+            xyzUser.setUserId(userDetailArray[1]);
+            xyzUser.setName(userDetailArray[2]);
+            xyzUser.setEmail(userDetailArray[4]);
+            xyzUser.setPhone(Long.parseLong(userDetailArray[3]));
+            xyzUser.setPassword(userDetailArray[5]);
 
             userlist.add(xyzUser);
         }

@@ -40,18 +40,14 @@ public class AdminController {
                     break;
 
                 case 2:
-
-                    break;
-
-                case 3:
                     adminService.showAnalytics();
                     break;
 
-                case 4:
+                case 3:
                     adminService.trendingTop3Songs();
                     break;
 
-                case 5:
+                case 4:
                     adminService.showSongs();
                     break;
 

@@ -46,8 +46,8 @@ public class AdminService {
         song.setId((list.size() + 1));
         System.out.print("                                                                      Enter Song Title:-");
         String title = sc.nextLine();
+        // sc.nextLine();
         song.setTitle(title);
-        sc.nextLine();
         System.out
                 .print(
                         "                                                                      Enter Song Duration(min):-");

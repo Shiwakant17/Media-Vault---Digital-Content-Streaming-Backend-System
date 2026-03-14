@@ -1,9 +1,10 @@
 package controller;
 
-import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.Scanner;
 
 import model.Greetings;
+import model.User;
 import service.AdminService;
 import service.LoggedInUserService;
 import service.Menu;
@@ -15,7 +16,7 @@ public class LoggedInUserController {
     AdminService adminService = new AdminService();
     LoggedInUserService loggedInUserService = new LoggedInUserService();
 
-    public void loggedInUser() throws InterruptedException, FileNotFoundException {
+    public void loggedInUser(User user) throws InterruptedException, IOException {
         while (true) {
             menu.LoggedInUser();
             greetings.enter();
@@ -34,6 +35,10 @@ public class LoggedInUserController {
 
                 case 4:
                     adminService.showSongs();
+                    break;
+
+                case 5:
+                    loggedInUserService.appendSongToPlayList(user);
                     break;
 
                 default:

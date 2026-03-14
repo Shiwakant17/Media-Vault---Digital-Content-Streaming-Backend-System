@@ -32,6 +32,8 @@ public class Greetings {
                 System.out.println(
                                 "                                                                         ||    2.ADMIN  LOGIN  ||");
                 System.out.println(
+                                "                                                                         ||    (X).CLOSE       ||");
+                System.out.println(
                                 "                                                                         ||                    ||");
                 System.out.println(
                                 "                                                                         ||                    ||");
@@ -60,6 +62,21 @@ public class Greetings {
                         System.out.print(". ");
                         Thread.sleep(1000);
                 }
+        }
+
+        public void welcomeToLoggedInUser(String name, String id) {
+                String singlePadding = " ".repeat(10);
+
+                System.out.println(
+                                singlePadding + "----------------------------------------------------------------------------------------------------------------------------       "
+                                                + "\n");
+
+                System.out.println(singlePadding + "SPOTIFY WELCOMES YOU," +
+                                name.toUpperCase()
+                                + "                                                                             "
+                                + id.toUpperCase() + "\n");
+                System.out.println(
+                                singlePadding + "----------------------------------------------------------------------------------------------------------------------------       ");
         }
 
 }

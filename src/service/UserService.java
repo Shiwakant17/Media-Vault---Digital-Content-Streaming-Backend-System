@@ -4,9 +4,12 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.concurrent.Flow.Subscriber;
+import java.util.concurrent.Flow.Subscription;
 
 import controller.LoggedInUserController;
 import data.UserList;
+import model.Greetings;
 import model.Song;
 import model.TrendingSongPriorityQ;
 import model.User;
@@ -56,7 +59,11 @@ public class UserService {
                 System.out.println();
                 System.out.println(
                                 "                                                                                Registration Done");
-
+                model.Subscription subscription = new model.Subscription();
+                subscription.setActive(false);
+                subscription.setSubscriptionName("NA");
+                subscription.setPrice(0);
+                newUser.setSubscription(subscription);
                 userRepository.addUser(newUser);
 
         }
@@ -66,8 +73,9 @@ public class UserService {
                 songRepository.getAllSongs();
         }
 
-        public void login() throws FileNotFoundException, InterruptedException {
+        public void login() throws InterruptedException, IOException {
                 LoggedInUserController loggedInUserController = new LoggedInUserController();
+                Greetings greetings = new Greetings();
                 Scanner sc = new Scanner(System.in);
                 UserList userList = new UserList();
                 userList.loadUserList();
@@ -85,9 +93,10 @@ public class UserService {
                         if (list.get(l).getEmail().equals(enteredEmail)
                                         && list.get(l).getPassword().equals(enteredPassword)) {
                                 System.out.println();
-                                System.out.print(
+                                System.out.println(
                                                 "                                                                           LOGGED IN SUCCESSFULLY ");
-                                loggedInUserController.loggedInUser();
+                                greetings.welcomeToLoggedInUser(list.get(l).getName(), list.get(l).getUserId());
+                                loggedInUserController.loggedInUser(list.get(l));
                                 return;
                         }
                         l++;

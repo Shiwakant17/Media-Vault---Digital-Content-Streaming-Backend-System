@@ -1,7 +1,6 @@
 package model;
 
 import java.util.ArrayList;
-import java.util.Objects;
 
 public class User {
     String userId;
@@ -10,6 +9,15 @@ public class User {
     String email;
     String password;
     ArrayList<Integer> playedSongs = new ArrayList<>();
+    public Subscription subscription = new Subscription();
+
+    public Subscription getSubscription() {
+        return subscription;
+    }
+
+    public void setSubscription(Subscription subscription) {
+        this.subscription = subscription;
+    }
 
     public ArrayList<Integer> getPlayedSongs() {
         return playedSongs;

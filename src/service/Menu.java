@@ -41,13 +41,11 @@ public class Menu {
                 System.out.println(
                                 "                                                                    ||        1. ADD SONGS            ||");
                 System.out.println(
-                                "                                                                    ||        2. DELETE SONG          ||");
+                                "                                                                    ||        2. SHOW ANALYTICS       ||");
                 System.out.println(
-                                "                                                                    ||        3. SHOW ANALYTICS       ||");
+                                "                                                                    ||        3. TRENDING SONGS       ||");
                 System.out.println(
-                                "                                                                    ||        4. TRENDING SONGS       ||");
-                System.out.println(
-                                "                                                                    ||        5. SHOW SONG            ||");
+                                "                                                                    ||        4. SHOW SONG            ||");
                 System.out.println(
                                 "                                                                    ||                                ||");
                 Thread.sleep(100);
@@ -74,6 +72,8 @@ public class Menu {
                                 "                                                                    ||        3. TRENDING SONGS       ||");
                 System.out.println(
                                 "                                                                    ||        4. SHOW SONG            ||");
+                System.out.println(
+                                "                                                                    ||        5. ADD SONG->PLAYLIST   ||");
                 System.out.println(
                                 "                                                                    ||                                ||");
                 Thread.sleep(100);

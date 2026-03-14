@@ -19,7 +19,6 @@ public class UserController {
             menu.userMenu();
             greetings.enter();
             int input = sc.nextInt();
-
             switch (input) {
                 case 1:
                     System.out.println(
@@ -44,7 +43,6 @@ public class UserController {
                         case 2:
                             userService.login();
                             break;
-
                         default:
                             break;
                     }
