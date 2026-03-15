@@ -8,6 +8,7 @@ import model.User;
 import service.AdminService;
 import service.LoggedInUserService;
 import service.Menu;
+import service.UserService;
 
 public class LoggedInUserController {
     Menu menu = new Menu();
@@ -15,6 +16,8 @@ public class LoggedInUserController {
     Greetings greetings = new Greetings();
     AdminService adminService = new AdminService();
     LoggedInUserService loggedInUserService = new LoggedInUserService();
+    UserService userService =  new UserService();
+
 
     public void loggedInUser(User user) throws InterruptedException, IOException {
         while (true) {
@@ -30,7 +33,7 @@ public class LoggedInUserController {
                     adminService.searchSong();
                     break;
                 case 3:
-                    System.out.println("WORKING");
+                    userService.trendingTop10Songs();
                     break;
 
                 case 4:
